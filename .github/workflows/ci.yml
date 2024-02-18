@@ -21,7 +21,7 @@ jobs:
       - name: Force Failure
         run: test -z $(go fmt ./...)
       - name: staticcheck
-        run: test -z $(go fmt ./...)
+        run: test -z $(staticcheck ./...)
 
   tests:
     name: Tests
