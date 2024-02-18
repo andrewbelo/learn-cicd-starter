@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func testGetAPIKey(t *testing.T) {
+func TestGetAPIKey(t *testing.T) {
 	t.Run("no auth header", func(t *testing.T) {
 		headers := http.Header{}
 		_, err := GetAPIKey(headers)
