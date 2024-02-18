@@ -30,7 +30,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -38,3 +39,5 @@ jobs:
 
       - name: Force Failure
         run: go test -cover ./...
+      - name: Security
+        run: test -z $(gosec ./...)
