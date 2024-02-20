@@ -32,4 +32,4 @@ jobs:
         run: "gcloud info"
 
       - name: "Submit build to Google"
-        run: "gcloud builds submit --tag REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG ."
+        run: "gcloud builds submit --tag us-central1-docker.pkg.dev/notely-414812/notely-ar-repo/notely-master:latest ."
