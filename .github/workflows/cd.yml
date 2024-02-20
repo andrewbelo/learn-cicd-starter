@@ -17,3 +17,19 @@ jobs:
 
       - name: Build executable
         run: scripts/buildprod.sh
+
+      - id: "auth"
+        uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v2"
+        with:
+          version: ">= 363.0.0"
+
+      - name: "Use gcloud CLI"
+        run: "gcloud info"
+
+      - name: "Submit build to Google"
+        run: "gcloud builds submit --tag REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG ."
